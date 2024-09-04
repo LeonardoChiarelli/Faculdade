@@ -5,7 +5,7 @@ n3 = int(input("Informe o terceiro lado do triangulo: "))
 lados = [n1,n2,n3]
 
 
-if n1 >= n2+n3:
+if n1 >= n2+n3 or n2 >= n1+n3 or n3 >= n2+n1:
     print('Os dados nao formam um triangulo')
 elif n1 == n2 == n3 :
     print('Os dados formam um triangulo equilatero')
