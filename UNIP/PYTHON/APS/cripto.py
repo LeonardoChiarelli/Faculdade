@@ -42,21 +42,13 @@ def gcd(a, b):
         a, b = b, a % b
     return a
 
-def calcularChavePublica(chave_publica):
-    N, E = chave_publica
-    print("Chave Pública (N, E):")
-    print("N =", N)
-    print("E =", E)
-
-def calcularChavePrivada(chave_privada):
-    N, D = chave_privada
-    print("Chave Privada (N, D):")
-    print("N =", N)
-    print("D =", D)
-
 # Teste do algoritmo
 chave_publica, chave_privada = gerarChaves()
 mensagem = input("Insira uma mensagem para criptografar: ")
 criptografado = criptografar(mensagem, chave_publica)
 print("Mensagem criptografada:", criptografado)
+print("Chave privada: (copiar e colar para descriptografar) - ", chave_privada)
+senha = ""
+while(senha != (str) (chave_privada)):
+    senha = input("Informe a chave privada para descriptorgrafar a mensagem: ")
 print("Mensagem descriptografada:", descriptografar(criptografado, chave_privada))
