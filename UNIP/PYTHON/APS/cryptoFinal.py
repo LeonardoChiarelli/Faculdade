@@ -1,3 +1,8 @@
+# O código escolhe números aleatórios para formar 'n', mas não garante que sejam primos, como seria necessário no RSA.
+# A chave pública é composta pelo par (k, n), onde 'k' é escolhido aleatóriamente entre 1 e 100 e garantido como coprimo com n. O valor de 'd' também é escolhido aleatóriamente, sem seguir a relação usual com 'k'
+# Criptografia e Descriptografia usam a estrutura de uma cifra de substituição linear (RSA usa o modelo exponencial)
+# Código divide a mensagem em blocos para evitar o overflow, garantindo assim que os blocos de dados fiquem dentro dos limites do valor de 'n'
+
 import random
 import math
 
