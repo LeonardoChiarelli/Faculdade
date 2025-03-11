@@ -1,0 +1,96 @@
+UNICSUL - Cibersegurança - Sistemas Operacionais - Aula 2
+
+🔧 1. Função do Sistema Operacional (SO)
+	- O Sistema Operacional é responsável por gerenciar todos os recursos do computador, como CPU, memória, arquivos e dispositivos de entrada/saída.
+	- Ele controla a execução dos processos, permitindo que diversos programas sejam executados ao mesmo tempo (multiprogramação), oferecendo ao usuário a impressão de paralelismo.
+
+⚙️ 2. Gerenciamento de Processos
+	- Processo: Programa em execução, com contexto e recursos associados. Diferente do programa, que é estático e armazenado no disco, o processo é dinâmico e reside na memória.
+	- Um mesmo programa pode originar vários processos se o SO permitir reentrância.
+	- Cada processo possui um contexto de execução, que inclui:
+		- PID (identificador do processo),
+		- Registradores (PC – Program Counter, SP – Stack Pointer),
+		- Variáveis, arquivos, prioridade, tempo de CPU e eventos esperados.
+
+📋 3. Bloco de Controle de Processo (BCP)
+	- Estrutura de dados com todas as informações necessárias para gerenciar e retomar a execução de um processo.
+	- Quando o processo é interrompido, seu contexto é salvo no BCP, permitindo retomá-lo do ponto exato onde parou (evitando perda de dados).
+
+🔄 4. Mudança de Contexto (Context Switching)
+	- Troca de execução entre processos concorrentes.
+	- O SO salva o contexto do processo atual no BCP e carrega o contexto do próximo processo a ser executado.
+	- Essencial para garantir a utilização eficiente da CPU.
+
+🌀 5. Estados de um Processo
+	- Criação: Quando o processo é gerado.
+	- Pronto (Ready): Esperando para ser executado.
+	- Execução (Running): Está usando a CPU.
+	- Bloqueado (Blocked): Aguardando um evento externo (E/S, dados).
+	- Encerrado (Terminated): Processo finalizado.
+
+📈 6. Filas de Controle
+	- Ready List: Fila de processos prontos para execução.
+	- Blocked List: Fila de processos que estão aguardando algum evento.
+	- O escalonador (scheduler) é responsável por organizar essas filas e decidir qual processo será executado.
+
+📅 7. Escalonamento de Processos
+	- Define a ordem em que os processos usam a CPU.
+	- Tipos de escalonamento:
+		- Preemptivo: Um processo pode ser interrompido antes de terminar sua execução.
+		- Não-preemptivo: Um processo só libera a CPU voluntariamente (após terminar).
+
+📊 8. Critérios para Escolha de Algoritmo de Escalonamento
+	- Justiça: Todos devem ter acesso à CPU.
+	- Eficiência: Maximizar o uso da CPU.
+	- Tempo de Resposta: Tempo entre envio da tarefa e resposta.
+	- Throughput (Vazão): Número de tarefas concluídas por tempo.
+	- Turnaround Time: Tempo total de execução de um job.
+
+🧠 9. Principais Algoritmos de Escalonamento
+	- FIFO (FCFS) – Primeiro a entrar, primeiro a sair. Simples, porém não ideal para tarefas interativas.
+	- Round Robin – Cada processo recebe uma fatia de tempo (quantum). Após o tempo, volta para o fim da fila.
+	- Prioridade – Processos com maior prioridade executam primeiro.
+		- Pode usar prioridades estáticas ou dinâmicas.
+		- Para evitar monopólio, a prioridade pode ser reduzida com o tempo.
+	- Shortest Job First (SJF) – Executa o processo com menor tempo estimado. Reduz tempo médio de espera.
+	- Escalonamento por Deadline – Usado em sistemas de tempo real. Processos devem ser executados antes de um prazo.
+	- Escalonamento com Garantia – Distribui CPU igualmente entre usuários.
+	- Escalonamento em Dois Níveis – Para casos com pouca memória. Um nível escolhe os processos da memória, outro lida com swapping (disco).
+
+🧮 10. Técnica de Aging (Envelhecimento)
+	- Técnica para estimar o tempo de execução de processos baseado em históricos anteriores.
+	- Fórmula comum: Estimativa = a * T_anterior + (1 - a) * T_atual.
+	- Permite melhorar algoritmos como SJF em ambientes interativos.
+
+⚡ 11. Interrupções
+	- Mecanismo que permite ao SO interromper um processo para realizar alguma ação importante.
+	- Tipos de Interrupção:
+		- De Software: Solicitação de serviços do SO.
+		- De Entrada/Saída (E/S): Eventos vindos de dispositivos (teclado, impressora etc.).
+		- Traps: Causadas por erros de execução (ex: divisão por zero).
+	- O SO salva o contexto do processo e executa uma rotina de tratamento da interrupção.
+
+🧵 12. Threads (Linhas de Execução Leve)
+	📌 Conceito
+		- As threads são unidades menores de execução dentro de um processo.
+		- Permitem que diferentes partes do mesmo programa sejam executadas simultaneamente, implementando multitarefa dentro do próprio processo.
+	🔄 Modelo Tradicional vs Modelo com Threads
+		- Modelo Tradicional: O programa possui uma única thread, ou seja, uma única linha de execução sequencial (as instruções são executadas uma após a outra, do início ao fim).
+		- Modelo com Threads: Um processo pode conter várias threads, que compartilham os mesmos recursos do processo (memória, arquivos, etc.), mas executam trechos diferentes de código simultaneamente.
+	🧠 Funcionamento prático das Threads
+		- Ao usar threads, não ocorre uma simples chamada de função tradicional, onde o controle do fluxo é transferido para a função.
+		- Em vez disso, ambas as threads (a chamadora e a nova thread criada) continuam executando em paralelo/concorrem pelo uso da CPU, como se fossem tarefas independentes.
+	💡 Vantagens do uso de Threads
+		- Melhor desempenho em sistemas multiprocessados ou multinúcleo.
+		- Maior eficiência na execução de tarefas simultâneas, como:
+		- Um programa que lê dados do disco enquanto processa dados já carregados.
+		- Aplicações com interface gráfica que continuam responsivas enquanto executam tarefas pesadas em segundo plano.
+		- Compartilhamento facilitado de dados entre partes do código, já que todas as threads compartilham o mesmo espaço de memória.
+	⚠️ Cuidados com o uso de Threads
+		- Como compartilham memória, pode haver problemas de concorrência, como:
+		- Condições de corrida (race conditions),
+		- Erros de sincronização (deadlocks, starvation),
+		- Acesso inconsistente a dados.
+		- É necessário usar mecanismos de sincronização (como mutexes, semáforos, monitores) para garantir a integridade dos dados.
+
+	

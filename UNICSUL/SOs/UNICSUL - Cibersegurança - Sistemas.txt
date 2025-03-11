@@ -1,0 +1,79 @@
+UNICSUL - Cibersegurança - Sistemas Operacionais
+
+Definições:
+ 	- É uma camada entre hardware e aplicação que fornece a utilização de maior racionalidade, portabilidade e dedicação a problemas de alto nível ou abstratos.
+	- Alguns autores definem o SO como um programa ou conjunto de programas inter-relacionados, cuja finalidade é agir como intermediário entre usuário e o hardware ou como um software gerente do hardware.
+	- Ele mais bem definido como um gerenciador de recursos em virtude de outras funções de que se encarrega.  
+
+
+Funções:
+	- Entre as principais funções do SO, pode-se listar: apresentar ao usuário uma máquina mais flexível; permitir o uso eficiente e controlado dos componentes de hardware ; permitir o uso compartilhado, eficaz, protegido e seguro dos vários componentes de hardware e de software por diversos usuários e prover mecanismos de Gerenciamento de Processos, como criação, escalonamento, controle de concorrência, proteção e destruição.
+	- Cabe ao SO esconder ou tornar transparente aos aplicativos os detalhes do hardware , cabendo apenas ao SO conhecer e negociar com ele.
+
+Serviços:
+	- Meios para criação de Programas;
+	- Meios para execução de Programas como mecanismo para carregar na memória, ler e escrever dados (i/o) e inicialização de arquivos;
+	- Acesso I/O e arquivos negociando as especificidades e formatos dos arquivos;
+	- Proteção e acesso a recursos e dados;
+	- Resolver conflitos e contenção de recursos;
+	 -Detectar erros e responder aos erros;
+	- Fornecer estatísticas dos recursos;
+	- Monitorar performance.
+
+
+História do Sistema Operacional:
+	- Os primeiros computadores (1945-1955) não tinham SO e sua programação e operação eram feitas diretamente em Linguagem de Máquina. Os programadores controlavam o computador por meio de chaves, fios e luzes.
+
+	- Nos primeiros SO (1955-1965), a interação entre ser humano e computador era feita por meio de periféricos de baixa velocidade, ou seja, o Sistema lia cartões perfurados para a entrada de dados, como ilustrado no link a seguir, e utilizava impressora para a saída de dados.
+
+	- Sistema batch ou em lote (Processamento em lote, usado para enfileirar tarefas) :
+		- Os programas com as tarefas ou, simplesmente, job ou task, em inglês, eram agrupados fisicamente e processados sequencialmente, executando uma tarefa após a outra, sem interrupção, tem como base um programa monitor, usado para enfileirar as tarefas.
+		- O Programa Monitor estava sempre na memória principal do computador, disponível para execução, mas, após passar o controle para o Programa do Usuário, só executava novamente quando houvesse necessidade, por erro ou fim do Programa do Usuário.
+		- Uma característica que se buscou nesses SOs foi criar uma área de memória protegida a que os programas dos usuários não tivessem acesso, nos quais estaria residindo o monitor.
+		- O Sistema batch apresentou, em sua evolução, um Sistema de interrupção para que um determinado job não monopolizasse o Sistema. Assim, para cada job é atribuída uma fatia de tempo e se este usasse toda a fatia de tempo, o Programa Monitor era chamado.
+		- Como mecanismo de segurança, atribui ao Programa Monitor o privilégio de ter algumas chamadas exclusivas; se algum Programa de Usuário tentasse chamá-las, essas chamadas acarretariam uma interrupção.
+		- Em um Sistema do tipo batch, procura-se maximizar o número de tarefas processadas por unidade de tempo e minimizar o tempo médio de espera para a execução das tarefas
+
+	- Sistema Spooling (Simultaneous Peripheral Operation On Line):
+		- A técnica consiste em ler os dados previamente e gravá-los agrupados em fitas e discos, que são muito mais rápidos, ficando prontos para serem usados quando solicitados pela tarefa.
+		- No início, esse processo era manual, mas se notava que poderia ser automatizado (1960). Os primeiros SOs eram únicos, desenvolvidos para cada computador específico, isso se dava sob encomenda, pois cada máquina tinha sua arquitetura e linguagem proprietária.
+		- Outra solução consistiu na introdução entrada e saída em paralelo com o processamento (1959). Essa técnica permite a existência de mais de um programa na memória principal, aumentando o desempenho do processador. Assim, toda vez que um programa encerra a saída de dados, outro, que foi previamente carregado na memória, pode ser alocado, evitando o tempo de espera de carga de novos programas.
+		- O surgimento dessa técnica dá início ao SO multiprogramado ou multiprogramming, pois, se na memória pode existir mais de um programa, a CPU pode chavear (switch) de um programa para o outro, sempre que um programa esteja esperando uma operação de entrada e saída, e, isso é conhecido como multitarefa ou multitasking.
+		- O problema observado com essa solução foi que a interação com usuários ficou prejudicada devido à necessidade de esperar pelo processamento completo das demais tarefas do programa que estava rodando, reduzindo a produtividade dos usuários.
+		- Processo de transferência de dados, colocando-os em uma área de trabalho temporária em que outro programa poderá acessá-lo.
+
+	- Sistema Time-Sharing (Tempo repartido que utiliza multiprogramação dividindo o tempo de processamento da CPU entre os processos ativos):
+		- Com o objetivo de solucionar o problema de espera do usuário, surgiram os sistemas de time-sharing (1965), ou tempo repartido, que utilizam multiprogramação, dividindo o tempo de processamento da CPU entre os processos ativos e os múltiplos usuários. Cada um recebe uma fatia de tempo ou time-slice para executar.
+		- Em um sistema de tempo repartido, procura-se dar um tempo de resposta por comando dentro de limites aceitáveis. O atendimento eficiente com pequenas frações de tempo fornece aos usuários a ilusão de que o Sistema está dedicado unicamente à sua tarefa.
+
+
+	- Sistemas Operacionais Multiusuários:
+		- Para entender os Sistemas Multiusuários, imagine que, conhecendo o tempo lento da reação humana, um usuário típico necessitava de 2 segundos de um minuto do processador de um computador típico na época, o que permitia que um computador atendesse até 30 usuários sem atrasos. Esse era o cálculo que os fabricantes faziam para saber quantos usuários poderiam acessar o sistema.
+		- Os SOs multiusuários tinham como desafio proteger os arquivos de vários usuários, evitando a sincronização imprópria, ou seja, que um programa esperando I/O fique em espera enquanto outro recebe sua solicitação de dados; que os programas acessem a região de dados um do outro, o que recebe o nome de exclusão mútua falida; e que os programas fiquem em deadlock, ou seja, um fique esperando o outro.
+
+
+Interação com SO:
+	- A maioria dos SOs permite que o usuário interaja de maneira direta, mas é comum encontrar maneiras de interagir por intermédio de quatro tipos de interface.
+	- A interface de terminal permite que o usuário envie comandos pertencentes a uma Linguagem de Comunicação especial chamada de Linguagem de Comando (Command Line Interface) a qual funciona, exclusivamente, com teclado e mouse. A partir de um prompt ou uma tela de acesso simples, os comandos são digitados e interpretados pelo shell, um interpretador de comandos.
+	- Ela costuma ser usada por usuários avançados, pois permite a realização de atividades específicas, tais como o gerenciamento remoto, pois utiliza poucos recursos de hardware e requer que o usuário conheça os comandos, os parâmetros e a sintaxe da Linguagem.
+	- Quase todos os consoles de comandos dos SOs modernos podem ser usados de forma interativa e no modo batch ou em lote. Na forma interativa, o usuário digita um comando após outro, enquanto no modo batch, cria-se um arquivo com uma sequência de comandos que podem ser reutilizados quantas vezes for necessário.
+	- A interface textual é baseada em texto, menus, janelas e botões. É uma evolução da interface de terminal, que foi difundida em aplicações baseadas no SO MS- DOS; porém, seu uso, atualmente, tornou-se raro, sendo comum encontra-la no processo de instalação do SO.
+	- A interface gráfica, chamada de Graphic User Interface (GUI), além de exibir menus, janelas e botões, apresenta elementos gráficos, como ícones, figuras e imagens. Em SOs que rodam em computadores pessoais, a mais conhecida é o WIMP, que consiste de janelas, ícones, menus e ponteiros.
+	- O usuário interage usando um ponteiro. Movendo o mouse é possível controlar a posição do cursor e apresentar as informações em janelas.
+	- Também, é possível interagir com o teclado, teclas de atalhos, toque em dispositivos sensíveis ao toque ou touchscreen e, recentemente, com dispositivos de reconhecimento de gestos e expressões faciais. O usuário é capaz de selecionar símbolos e manipulá-los de forma a obter resultados práticos.
+
+
+Tipos de SOs:
+	- Serial: ter todos os recursos dedicados a um único programa até o seu término ou ser concorrente, no qual os recursos são dinamicamente reassociados entre uma coleção de programas ativos e em diferentes estágios de execução.
+	- Monoprogramado: permite apenas um programa ativo em um dado período de tempo, o qual permanece na memória até o seu término.
+	- Multiprogramado: mantém mais de um programa simultaneamente na memória principal a fim de possibilitar o compartilhamento efetivo do tempo da CPU e dos demais recursos.
+	- Batch: os jobs são submetidos em ordem sequencial de execução e, enquanto ocorre o processamento, o usuário fica sem interação, até o término da execução dos jobs.
+	- Interativos: possibilitam o diálogo com o usuário, podendo ser projetado como sistemas monousuários ou multiusuários, usando conceitos de multiprogramação e time-sharing.
+	- Monousuários: permitem que um usuário possa interagir com o Sistema, como foi o caso do SO MS-DOS. O SO é dito multiusuário quando provê atendimento a mais de um usuário, como ocorre com o Unix e o Lunix.
+	
+	- Multiprogramação: é a capacidade de o Sistema permitir que mais de um programa esteja presente na memória principal em contraste à monoprogramação em que apenas um programa reside na memória principal.
+
+Estrutura interna de um SO:
+	- Monolítica: também conhecidos como monobloco, são os mais primitivos, e consiste de um conjunto de rotinas que executam sobre o hardware como se fosse um único programa residindo na memória principal protegida e os Programas dos Usuários são vistos pelo Sistema como sub-rotinas invocadas pelo SO quando ele não executa nenhuma das funções do Sistema.
+	- Núcleo ou micro-kernel ou cliente-servidor: incorporam somente as funções de baixo nível, ou seja, as mais vitais, dando, assim, a base para ser construído o resto do SO.
+		- O micro-kernel deve fornecer os serviços de alocação de CPU e de comunicação dos processos sendo que outras funções, como sistemas de servidor de diretórios e arquivos e gerenciamento de memória, são executadas no espaço do usuário. Assim como os serviços e as aplicações, os programas dos usuários são os clientes.  
