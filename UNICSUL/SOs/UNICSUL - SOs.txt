@@ -1,0 +1,105 @@
+							🧠 Memória em Sistemas Operacionais – Cibersegurança | UNICSUL
+
+🔹 1. Tipos de Memória
+	📍 Registradores
+		- Localizados no processador;
+		- Altíssima velocidade e custo elevado;
+		- Usados para armazenar dados de uso imediato.
+
+	📍 Memória Cache
+		- Intermediária entre processador e RAM;
+		- Previsão de dados frequentemente acessados;
+		- Tipos:
+			- L1: 2–3 ciclos (mais rápida);
+			- L2: ~10 ciclos;
+			- L3: maior capacidade, menor velocidade;
+		- Mede-se por capacidade e latência (ns ou ciclos de clock).
+
+	📍 Memória Principal (RAM)
+		- Volátil e de acesso aleatório (Random Access Memory);
+		- Classificações:
+			- SIMM (Single In-Line Memory Module) / DIMM (Double In-Line Memory Module) – forma física dos módulos; 
+			- SDRAM (Synchronous Dynamic Random Access Memory) – sincronizada ao clock do sistema;
+			- DRAM (Dynamic Random Access Memory) – assíncrona, mais barata, requer refresh;
+		- Tecnologias:
+			- DDR (Double Data Rate) → DDR2 (4x), DDR3 (8x), DDR4 (maior taxa).
+
+	📍 Memória Secundária
+		- Discos rígidos (HD), SSDs etc;
+		- Alta capacidade, persistente, mais lenta;
+		- Latência em milissegundos (milhão de vezes mais lenta que cache).
+
+🔹 2. Gestão de Memória pelo Sistema Operacional
+	📍 Objetivo do SO
+		- Abstrair e gerenciar a hierarquia de memória e sua latência.
+
+	📍 Gerenciador de Memória
+		- Aloca e libera memória;
+		- Evita que processos acessem áreas não permitidas;
+		- Trata fragmentação e swapping.
+
+	📍 Problemas Solucionados pelo SO
+		- Segurança: processos não acessam memória alheia;
+		- Realocação de endereços: cada processo tem seu próprio espaço.
+
+	📍 Solução com Registradores
+		- Registrador-Base: início do espaço do processo;
+		- Registrador-Limite: tamanho do espaço permitido;
+		- Impede acesso indevido.
+
+🔹 3. Métodos de Alocação de Memória
+	+-----------------------------------------------------------------------+
+	| Método     |	Característica						|
+	+-----------------------------------------------------------------------+
+	| First Fit  |	Primeira região livre encontrada.			|
+	+-----------------------------------------------------------------------+
+	| Best Fit   |	Menor bloco possível, gera pequenos espaços residuais.	|
+	+-----------------------------------------------------------------------+
+	| Worst Fit  |	Maior bloco possível, causa fragmentação irregular.	|
+	+-----------------------------------------------------------------------+
+	- Todos mantêm uma Lista Livre de blocos disponíveis;
+	- Blocos vizinhos podem ser unidos para formar blocos maiores.
+
+🔹 4. Memória Virtual
+	📍 Conceito
+		- Utiliza disco como extensão da RAM;
+		- Traz páginas sob demanda → Swapping otimizado.
+
+	📍 Paginação
+		- Programa dividido em páginas;
+		- Endereço virtual → traduzido para endereço físico;
+		- Tabela de Páginas: mapeia endereços virtuais → físicos.
+
+	📍 Unidades Auxiliares
+		- MMU (Memory Management Unit) → tradução automática;
+		- DAT (Dynamic Address Translation) → mapeia dinamicamente.
+
+	📍 Problema: Tabelas muito grandes → solução: endereçamento por diretórios + quadros + deslocamento.
+
+🔹 5. Segmentação
+	📍 Conceito
+		- Programa dividido em segmentos (dados, códigos, arrays...);
+		- Segmentos são independentes e alocados separadamente.
+
+	📍 Vantagens
+		- Compartilhamento de dados;
+		- Crescimento independente de segmentos;
+		- Organização lógica clara.
+
+	📍 Desvantagens
+		- Segmentos dependem do processo;
+		- Blocos físicos nem sempre se encaixam → solução: segmentação + paginação combinadas.
+
+✅ Resumo Visual da Hierarquia de Memória:
+
++---------------------------+
+|   Registradores (CPU)     | ← + rápida, + cara
++---------------------------+
+|         Cache (L1–L3)     |
++---------------------------+
+|     Memória Principal     |
+|      (RAM – SDRAM)        |
++---------------------------+
+|    Memória Secundária     |
+|    (HD, SSD – persistente)|
++---------------------------+
