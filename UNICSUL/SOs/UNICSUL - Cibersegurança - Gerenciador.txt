@@ -1,0 +1,96 @@
+								📂 Gerenciador de Arquivos: Sistemas de Arquivos em SO
+									(Segurança da Informação - UNICSUL)
+
+📄 Arquivos
+	📐 Definição
+		- Abstração: Coleção nomeada de dados (registros físicos/blocos).
+		- Tipos de Registros:
+			- Não blocados: Arquivo em única unidade física.
+			- Tamanho fixo: Todos os registros iguais (ex: bancos de dados).
+			- Tamanho variável: Registros com tamanhos distintos (ex: documentos).
+	🔤 Nomenclatura
+		- Regras:
+			- Unix: Case-sensitive (maria ≠ Maria).
+			- Windows: Case-insensitive.
+		- Extensões:
+			- Unix: Livre (ex: arquivo.tar.gz).
+			- Windows: 3-4 caracteres (ex: .docx).
+	🛠 Operações Básicas
+		+-----------------------------------------------+
+		| Operação	| Descrição			|
+		+-----------------------------------------------+
+		| Criar		| Novo arquivo.			|
+		| Abrir/Fechar	| Preparar/bloquear acesso.	|
+		| Copiar	| Duplicar conteúdo.		|
+		| Renomear	| Alterar nome.			|
+		| Apagar	| Remover arquivo.		|
+		+-----------------------------------------------+
+	📊 Atributos
+		- Tamanho, Localização, Tipo, Permissões, Volatilidade.
+
+🗂️ Sistema de Arquivos
+	⚙️ Funções Principais
+		- Organização: Estrutura hierárquica (diretórios).
+		- Segurança: Controle de acesso (leitura/escrita).
+		- Backup: Recuperação de dados.
+		- Criptografia: Proteção de conteúdo.
+	📌 Exemplos de Comandos
+		+-----------------------------------------------+		
+		| Ação 			| Windows	| Unix	|
+		+-----------------------------------------------+
+		| Copiar		| copy		| cp	|
+		| Mover			| move		| mv	|	
+		| Listar		| dir		| ls	|
+		| Criar diretório	| md		| mkdir	|
+		+-----------------------------------------------+	
+	🔗 Links (Atalhos)
+		- Simbólicos: Apontam para caminhos (ex: shortcut no Windows).
+		- Estritos: Referenciam blocos físicos (mais frágeis à desfragmentação).
+
+📁 Diretórios
+	🏗️ Estrutura
+		- Hierárquica: Raiz → Subdiretórios → Arquivos.
+			- Windows: C:\Users\Nome\Documentos
+			- Unix: /home/nome/documentos
+	 🌟 Especiais
+		- ".": Diretório atual.
+		- "..": Diretório pai.
+	📱 Exemplo Prático (Unix)
+		- cp ../bib/dicionario .  # Copia "dicionario" para o diretório atual.
+
+🔍 Metadados
+	- Função: Informações sobre o arquivo (ex: data de modificação, blocos livres).
+	- Superbloco: Identificação única do sistema de arquivos (crítico para integridade).
+
+💿 Montagem de Sistemas de Arquivos
+	- Objetivo: Integrar dispositivos (HDs, USBs) ao sistema.
+	- Exemplos:
+		- Windows: Discos como C:, D:.
+		- Unix: Pontos em /mnt/.
+	- Comandos:
+		- mount: Conecta dispositivo.
+		- umount: Desconecta.
+
+🎨 Visualização Hierárquica
+	📦 Raiz (/)  
+	├── 📂 home  
+	│   └── 📂 usuario  
+	│       └── 📄 documento.txt  
+	├── 📂 mnt  
+	│   └── 🖴 USB (montado)  
+	└── 📂 etc  
+	    └── 📄 config.conf  
+
+✅ Resumo de Diferenciais entre SOs
+	+-----------------------------------------------------------------------+
+	| Característica 	| Windows 		| Unix			|
+	+-----------------------------------------------------------------------+
+	| Caminhos	 	| C:\pasta\arquivo 	| /pasta/arquivo	|
+	| Case-sensitive 	| Não			| Sim			|	
+	| Links	 		| Atalhos (.lnk) 	| Symlinks (ln -s) 	|
+	+-----------------------------------------------------------------------+
+
+🔐 Boas Práticas
+	- Use backups regulares.
+	- Evite links estritos em discos fragmentados.
+	- Organize arquivos por diretórios temáticos.

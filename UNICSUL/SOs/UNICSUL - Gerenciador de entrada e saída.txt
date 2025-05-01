@@ -1,0 +1,98 @@
+									UNICSUL - Gerenciador de entrada e saída
+
+1. Introdução
+	O Gerenciamento de E/S é uma das principais funções do Sistema Operacional (SO), responsável por controlar todos os dispositivos de entrada e saída do computador. Seu objetivo é facilitar o acesso aos dispositivos, abstraindo os detalhes de hardware e garantindo operações eficientes e seguras, mesmo em cenários de compartilhamento de recursos.
+
+2. Classificação dos Dispositivos de E/S
+	Os dispositivos de E/S podem ser classificados em duas categorias principais:
+		2.1 Dispositivos de Bloco
+			Armazenam e transferem dados em blocos de tamanho fixo (ex.: 512B a 32KB).
+			Permitem acesso aleatório (leitura/escrita independente).
+			Exemplos: discos rígidos (HDD/SSD), CD-ROM, pendrives.
+		2.2 Dispositivos de Caractere
+			Trabalham com fluxos contínuos de caracteres (sem estrutura de blocos).
+			Não permitem acesso aleatório (operações sequenciais).
+			Exemplos: teclado, mouse, impressoras, interfaces de rede.
+		2.3 Exceções à Classificação
+			Alguns dispositivos não se encaixam nessa classificação, como:
+				Relógios/timer (geram interrupções).
+				Vídeos mapeados em memória (acessados diretamente pela CPU).
+3. Variação de Velocidades em Dispositivos de E/S
+	A velocidade de operação dos dispositivos varia significativamente:
++-----------------------------------------------+
+| Dispositivo 			| Taxa de Dados |
++-----------------------------------------------+
+| Teclado 			| 10 bytes/s	|
+| Mouse 			| 100 bytes/s	|
+| Modem 			| 7 Kb/s	|
+| Impressora a Laser 		| 100 Kb/s	|
+| Scanner 			| 400 Kb/s	|
+| Ethernet 			| 1,25 Mb/s	|
+| USB 				| 1,5 Mb/s	|
+| Câmera de Vídeo Digital 	| 4 Mb/s	|
+| Disco IDE 			| 5 Mb/s	|
+| CD-ROM 40x 			| 6 Mb/s	|
+| Disco ATA-2 			| 16,7 Mb/s	|
+| FireWire 			| 50 Mb/s	|
+| Disco SCSI Ultra-2 		| 80 Mb/s	|
++-----------------------------------------------+
+
+	Essa variação exige mecanismos de sincronização, como buffering e spooling, para evitar gargalos.
+
+4. Camadas do Gerenciamento de E/S
+	O sistema de E/S é organizado em camadas para modularizar suas funções:
+	E/S em Nível de Usuário
+		Interface de alto nível (ex.: printf, read, write).
+		Bibliotecas que abstraem chamadas de sistema.
+	E/S Independente de Dispositivo
+		Padroniza operações (ex.: open(), close(), read()).
+		Gerencia buffers, alocação de blocos livres e erros.
+	Device Drivers (Drivers de Dispositivo)
+		Traduzem comandos abstratos para instruções específicas do hardware.
+		Exemplo: Um comando print é convertido em instruções para a impressora.
+	Rotina de Interrupção
+		Trata interrupções geradas pelos dispositivos (ex.: fim de uma transferência).
+	Controladores (Hardware)
+		Componente físico que executa as operações (ex.: placa de vídeo, controladora de disco).
+5. Funcionamento de uma Operação de E/S
+	5.1 Exemplo: Impressão de uma Mensagem no Monitor
+		O programa chama printf("Oi").
+		O SO traduz para uma chamada de sistema.
+		O driver de vídeo converte em comandos para a placa controladora.
+		A placa controladora envia sinais elétricos ao monitor.
+	5.2 Exemplo: Leitura de um Disco
+		O SO envia comandos ao controlador de disco (trilha, setor, bloco).
+		O disco posiciona a cabeça de leitura e transfere os dados para um buffer.
+		O controlador usa DMA (Acesso Direto à Memória) para copiar os dados para a RAM.
+		Uma interrupção sinaliza a conclusão da operação.
+6. Técnicas de Transferência de Dados
+	6.1 Polling (Consulta)
+		A CPU verifica repetidamente o estado do dispositivo.
+		Ineficiente, pois consome ciclos da CPU.
+	6.2 Interrupções
+		O dispositivo avisa a CPU quando uma operação é concluída.
+		Mais eficiente que o polling.
+	6.3 DMA (Acesso Direto à Memória)
+		O controlador transfere dados diretamente para a memória, sem intervenção da CPU.
+		Usado em dispositivos rápidos (discos, placas de rede).
+7. Drivers de Dispositivo (Device Drivers)
+	São módulos do SO específicos para cada hardware.
+	Convertem comandos abstratos (ex.: "imprimir em negrito") em instruções específicas para o dispositivo.
+	Exemplos:
+		Disk driver (para HDs/SSDs).
+		Printer driver (para impressoras).
+		Network driver (para placas de rede).
+	7.1 Funcionamento de um Driver
+		Recebe uma requisição abstrata (ex.: "ler bloco X").
+		Traduz para comandos do controlador.
+		Envia os comandos aos registradores do dispositivo.
+		Aguarda a conclusão (via interrupção).
+		Retorna o resultado ao processo solicitante.
+8. Conclusão
+	O Gerenciamento de E/S é essencial para o funcionamento do SO, garantindo:
+	Abstração do hardware (o usuário não precisa conhecer detalhes técnicos).
+	Compatibilidade (drivers permitem suporte a novos dispositivos).
+	Eficiência (uso de DMA, interrupções e buffering).
+	Segurança (controle de acesso a dispositivos compartilhados).
+	Sem esse gerenciamento, operações simples como imprimir um documento ou salvar um arquivo seriam extremamente complexas para o usuário final.
+
