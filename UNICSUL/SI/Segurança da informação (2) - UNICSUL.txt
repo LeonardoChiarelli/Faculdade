@@ -1,0 +1,85 @@
+									Segurança da Informação – UNICSUL
+
+1. Conceitos Fundamentais
+	- Para entender a segurança da informação, é essencial compreender os seguintes termos:
+		- Exploit: Código ou técnica usada para explorar uma vulnerabilidade.
+		- Vulnerabilidade: Fragilidade em um sistema ou processo que pode ser explorada.
+		- Ameaça: Potencial de causar danos ao explorar uma vulnerabilidade.
+		- Ataque: Ação concreta que visa explorar uma vulnerabilidade.
+		- Risco: Possibilidade de uma ameaça explorar uma vulnerabilidade, gerando impacto negativo.
+
+2. Tipos de Ameaças
+	2.1. Ameaças Físicas
+		- Ameaças que envolvem danos físicos ou acesso indevido ao ambiente:
+		- Alagamentos
+		- Descargas elétricas (raios)
+		- Desabamentos
+		- Acessos físicos indevidos
+
+	2.2. Ameaças Lógicas
+		- Ameaças que ocorrem no ambiente digital:
+		- Infecções por malwares (vírus, worms, trojans)
+		- Acessos remotos não autorizados
+		- Violações de senhas e credenciais
+
+3. Tipos de Ataques
+	3.1. Por Origem
+		- Ataques Internos:
+			- Funcionários mal-intencionados
+			- Espionagem corporativa
+			- Configurações incorretas por usuários despreparados
+		- Ataques Externos:
+			- Crackers e hackers que visam exploração de falhas
+			- Ações motivadas por lucro, desafio técnico ou vingança
+
+4. Principais Técnicas de Ataque
+	4.1. DoS – Denial of Service
+		- Objetivo: Tornar um serviço indisponível ao sobrecarregar o servidor.
+		- Métodos: Envio massivo de requisições (como ping ou SYN flooding).
+		- SYN Flooding: O atacante inicia várias conexões com SYN, mas nunca completa o handshake, levando o servidor à exaustão.
+	4.2. DDoS – Distributed Denial of Service
+		- Objetivo: Mesmo do DoS, mas com múltiplas máquinas (botnets).
+		- Características:
+			- Invasão por malware
+			- Ativação simultânea e coordenada
+			- Requisições massivas que esgotam a capacidade do servidor
+	4.3. Port Scanning
+		- Objetivo: Identificar portas abertas em servidores.
+		- Ferramentas: Utilizam protocolos como ICMP, TCP SYN/ACK para detectar serviços disponíveis.
+		- Exemplo de ferramenta: Nmap.
+	4.4. Ataque de Força Bruta
+		- Objetivo: Descobrir senhas por tentativa e erro.
+		- Ferramentas: Wordlists (listas de senhas comuns) + scripts automatizados.
+		- Solução preventiva: Políticas de senhas fortes e bloqueio após tentativas falhas.
+	4.5. MAC Flooding
+		- Objetivo: Saturar a tabela MAC de um switch.
+		- Efeito: O switch perde sua função de comutação e se comporta como um hub, expondo os dados trafegados.
+		- Consequência: O atacante pode capturar pacotes de dados com ferramentas de sniffing.
+	4.6. ARP Spoofing
+		- Objetivo: Redirecionar tráfego de rede local para o atacante.
+		- Técnica: Envia respostas ARP falsas, fazendo com que máquinas comuniquem-se com o invasor.
+		- Impacto: Permite ataques Man-in-the-Middle (MitM).
+	4.7. Ransomware
+		- Objetivo: Criptografar dados e exigir resgate.
+		- Métodos de Infecção:
+			- Acesso remoto
+			- Phishing
+			- Exploração de vulnerabilidades
+		- Prevenção:
+			- Backup regular
+			- Sistemas atualizados
+			- Antivírus e firewall
+	4.8. Engenharia Social
+		- Ataques baseados na manipulação do comportamento humano, visando obter informações sensíveis.
+		- Técnicas Comuns de Engenharia Social:
+			- Phishing: Envio de e-mails ou mensagens fraudulentas com links ou anexos maliciosos.
+			- Pharming: Redirecionamento de tráfego de sites legítimos para versões falsas (geralmente em massa).
+			- Shoulder Surfing: Observação direta de credenciais (como senhas digitadas).
+			- Rush Authentication: Invasão por "empatia", como simular carregar uma caixa pesada para acessar uma área restrita.
+5. Boas Práticas de Segurança
+	- Utilização de senhas fortes e autenticação multifatorial
+	- Atualizações regulares de sistemas e softwares
+	- Monitoramento e auditoria de acessos
+	- Treinamentos de conscientização para usuários
+	- Backup de dados e planos de recuperação de desastres
+	- Políticas de controle de acesso físico e lógico

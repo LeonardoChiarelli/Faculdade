@@ -1,0 +1,79 @@
+									Segurança da Informação – UNCISUL
+
+	1. Conceito Geral
+		- Segurança da informação é o conjunto de práticas, políticas e tecnologias utilizadas para proteger os dados contra acesso não autorizado, alterações, divulgação indevida ou destruição. Envolve garantir a confidencialidade, integridade, disponibilidade, autenticidade e o não repúdio da informação.
+
+	2. Malwares
+		- Malware (do inglês, malicious software) são programas desenvolvidos com o objetivo de danificar sistemas, roubar informações ou causar mau funcionamento. Entre os principais tipos:
+			- Vermes (worms): propagam-se automaticamente pela rede, consumindo recursos e podendo causar negação de serviço (DoS).
+			- Cavalos de Troia (Trojan horses): disfarçados de softwares legítimos, causam danos e podem abrir portas para execução remota.
+			- Vírus: precisam ser executados por usuários para se propagarem e infectarem outros arquivos.
+
+	3. Outros Tipos de Software Malicioso
+		- Com o avanço da tecnologia, surgiram outras ameaças:
+			- Spywares: programas espiões que coletam dados do usuário sem autorização.
+			- Adwares: softwares que exibem propagandas; alguns capturam dados pessoais de forma maliciosa.
+			- Stealwares: desviam valores de links patrocinados, prejudicando financeiramente websites.
+
+	4. Princípios da Segurança da Informação
++-----------------------+-------------------------------------------------------------------------------------------------------+
+|	 Princípio 	| 						Definição						|
++-------------------------------------------------------------------------------------------------------------------------------+
+| Confidencialidade 	| Garante que apenas pessoas autorizadas acessem as informações. Ex.: criptografia. 			|
+| Integridade 		| Assegura que os dados não sejam alterados indevidamente. Ex.: assinaturas digitais, funções hash.	|
+| Autenticidade 	| Confirma a identidade do emissor da informação. Ex.: autenticação digital.				|
+| Disponibilidade  	| Garante que os dados e sistemas estejam acessíveis quando necessários. Ex.: backups, redundância.	|
+| Não repúdio 		| Impede que uma parte negue uma ação realizada. Ex.: registros de transação.				|
++-----------------------+-------------------------------------------------------------------------------------------------------+
+
+	5. Ameaças vs. Ataques
+		- Ameaça: possibilidade de falha ou violação de segurança sem invasão direta.
+		- Ataque: ação deliberada que explora vulnerabilidades, invadindo sistemas.
+
+	6. Boas Práticas de Segurança
+		- Para garantir a segurança da rede, recomenda-se:
+			- Uso de firewalls;
+			- Adoção de VPNs para conexões remotas seguras;
+			- Antivírus e antispywares atualizados;
+			- Sistemas de detecção e prevenção de intrusos (IDS/IPS);
+			- Planejamento estratégico de segurança com educação de usuários;
+			- Realização de backups regulares;
+			- Monitoramento por sistemas de detecção de anomalias;
+			- Gerenciamento de acessos com identificação e autenticação fortes;
+			- Configuração segura de redes wireless, com WPA2 ou superior;
+			- Redes Desmilitarizadas (DMZ) para proteger serviços expostos à internet.
+
+	7. Engenharia Social
+		- Trata-se do uso da persuasão para enganar pessoas e obter informações sigilosas. Explora o “fator humano” como ponto fraco da segurança. A prevenção inclui:
+			- Treinamentos periódicos;
+			- Políticas claras de uso de recursos;
+			- Auditorias regulares.
+
+	8. Planejamento de Segurança
+		- Um bom plano de segurança segue três etapas:
+			- Prevenção: identificar riscos e implementar medidas.
+			- Detecção: monitorar e identificar incidentes.
+			- Resposta e Recuperação: definir ações a serem tomadas em caso de incidentes.
+
+	9. Questões para Avaliar a Infraestrutura de Segurança
+		- A rede possui firewall dedicado?
+		- Existem sistemas de detecção de intrusão?
+		- Quais antivírus são utilizados?
+		- Há políticas para uso de rede wireless?
+		- Como são realizados acessos remotos?
+		- Existe segregação entre DMZ e rede interna?
+		- Há controle de identidade e acesso?
+
+	10. Segurança em Dispositivos Móveis
+		- Com o crescimento do uso de smartphones e tablets nas empresas, aumentam os riscos. Dispositivos com sistemas como Android ou Windows Mobile podem ser infectados por malwares, e devem ser incluídos no planejamento de segurança.
+
+	11. Normas e Boas Práticas
+		- Órgãos e modelos de referência:
+			- Instituto de Governança da TI
+			- ISACA – Associação de Auditoria e Controle de Sistemas de Informação
+			- COBIT – Framework que define objetivos de controle e boas práticas em TI, estruturado em 4 domínios e diversos processos.
+
+	12. Considerações Finais
+		- Não existe segurança 100% garantida.
+		- Segurança deve equilibrar: usabilidade, custos e nível de proteção.
+		- O modelo ideal inclui pessoas, processos, equipamentos e métodos integrados.
