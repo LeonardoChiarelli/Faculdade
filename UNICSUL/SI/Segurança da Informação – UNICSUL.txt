@@ -1,0 +1,76 @@
+																Segurança da Informação – UNICSUL
+
+Para que se possa começar a definir quais as tecnologias de segurança que uma
+empresa precisará, ela deverá começar a identificar alguns itens como:
+• A rede possui um único ponto de firewall ou apenas usa o firewall do sistema operacional?
+• O firewall consiste em um equipamento ou em um software instalado no servidor ou em uma ou mais máquinas?
+• Há algum método de detecção de invasão virtual ou biométrico?
+• Que tipo de antivírus está sendo usado, ele cobre os requisitos necessários de
+um bom antivírus?
+• Está sendo usada rede wireless, estão configurados os principais pontos de
+segurança para torná-la protegida?
+• Minha rede tem um detector de anomalias, ou seja, há alguma técnica usada
+para detectar mudança de padrões na rede?
+• Há a necessidade de um gerenciador de identidade, ou seja, técnicas que garantam a manutenção de acesso a recursos e sistemas?
+• Em que local se encontram os equipamentos estratégicos da empresa e, em
+linhas gerais, quem está autorizado a acessá-los?
+• A empresa permite que funcionários, parceiros e clientes acessem a rede da
+empresa remotamente?
+• Como são validados e controlados esses acessos remotos?
+• Tem configurado uma rede desmilitarizada (DMZ) na empresa? Ela está, realmente, separada da rede interna?
+• Qual técnica está sendo usada para separar a rede interna da rede desmilitarizada (DMZ)?
+• Qual o nível de acesso a arquivos e à própria rede definido para cada usuário?
+
+Para que as falhas sejam minimizadas, foi criada uma ferramenta a qual chamamos de
+firewall. Ela foi desenvolvida exatamente para isolar as máquinas do ambiente
+externo da internet, bloqueando acessos que tenham como objetivo explorar essas
+vulnerabilidades. O firewall é a principal ferramenta de combate à invasão nos sistemas de computadores. A sua associação com a segurança sempre é feita entre várias técnicas
+utilizadas para combater invasões em redes de computadores. O firewall é um recurso de rede cuja função é administrar, filtrar o tráfego dos
+pacotes entre redes distintas e impedir a transmissão de dados nocivos ou não de
+uma rede a outra. Ele é utilizado para filtrar os pacotes não autorizados de um
+domínio de rede a outro, portanto, ele age como um guardião evitando que determinados pacotes mal-intencionados sejam recebidos pela rede. Portanto, todos os
+equipamentos e softwares que atende a requisitos de filtragem de pacotes podem
+ser denominados firewall.Com a evolução da tecnologia, os firewalls foram ganhando novos recursos
+para melhorar a filtragem de pacotes, portanto, além da filtragem de número de
+portas, ele considera também na filtragem os endereços IPs de origem e destino,
+protocolos da camada de transporte e os aplicativos. O firewall pode se apresentar na forma de software ou então na forma de hardware. Inclusive, pode-se utilizar ambos os tipos
+para se aumentar o nível de segurança entre as redes que estão sendo monitoradas por eles. Um firewall analisa os campos contidos nos
+cabeçalhos da grande maioria dos pacotes na camada do modelo TCP/IP. Podemos criar muitos tipos de regras a serem avaliadas pelo firewall na filtragem desses
+pacotes. As ações a serem executadas em um pacote são: aceitar; descartar; rejeitar o pacote. Para executar quaisquer dessas ações pré-estabelecidas pelas regras,
+primeiramente, ele tomará como referência informações contidas no cabeçalho de
+qualquer pacote que passa por ele. A diferença entre as ações Descartar (DROP) e Rejeitar (Reject) está na ação
+após o pacote ser desconsiderado. Na ação Drop, não há envio de mensagem descrevendo por qual motivo o pacote foi descartado. Na ação Reject, é enviada uma
+mensagem para a origem descrevendo o motivo da rejeição.
+Vejamos então alguns dos tipos de informações que o firewall pode se basear
+para realizar a filtragem dos pacotes:
+• Endereço de origem e endereço destino;
+• Mascara de sub-rede de origem e de destino;
+• Porta de origem e porta de destino;
+• Tipo de protocolo;
+• Interface de entrada e interface de saída;
+• Status da conexão;
+• Identificação do pacote;
+• Entre outras.
+Nominalmente, há cinco tipos de firewalls definidos em conexões internet, descritos a seguir.
+• Firewall de filtragem de quadros
+Esse tipo de firewall tem como função analisar os quadros referentes à camada
+de enlace. Nessa camada, o filtro é feito a nível de bits sobre as tecnologias usadas, por exemplo, Ethernet 802.3, Token Ring, FDDI e outros. Filtrar os quadros e descartar os suspeitos, evita que eles sejam examinados por filtros definidos em camadas superiores.
+• Firewall de filtragem de pacotes
+Por ter surgido com essa finalidade, esse tipo de firewall é um dos mais conhecidos e usados, grande parte dos roteadores oferece esse tipo de configuração, a
+qual chamamos de lista de acesso. Caso a empresa tenha que implantar várias regras de filtragem, então, o ideal é
+usar um dispositivo que não seja o roteador como firewall, dessa forma, otimiza-se
+os recursos e torna-se a rede mais eficiente. Os sistemas operacionais, geralmente,
+apresentam também recursos para filtragem de pacotes – o Linux disponibiliza o
+IPTables como ferramenta para configuração.
+• Firewall gateway de circuito
+Geralmente, identifica as ações executadas por determinado usuário, registra de
+onde vieram e para onde vão através das autenticações feitas. Os mecanismos que
+envolvem um proxy é um bom exemplo de firewall de gateway de circuito, ou seja,
+o usuário deve ter permissão para acessar determinadas páginas.
+• Firewall de estado total
+Os ataques evoluíram aproveitando falhas nas transações entre aplicações. Ataques como forjar endereço IP, aquisição de sessão tomando carona na aplicação,
+sequestro de sessão e outros foram identificados ao longo do tempo.
+Para evitar esses ataques, os firewalls tiveram que se aperfeiçoar, no sentido de
+identificar o comportamento e identificar qualquer problema em transações feitas
+por esses aplicativos. Embora a solução prevista nesse tipo de firewall seja eficiente, por si só não garante outros tipos de filtros.
+
